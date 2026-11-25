@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Bharat PCB</string>
+    <string name="brand_title">Bharat AI</string>
+    <string name="brand_subtitle">PCB Inspector</string>
+    <string name="nav_dashboard">Home</string>
+    <string name="nav_inspect">Inspect</string>
+    <string name="nav_history">History</string>
+    <string name="nav_settings">Settings</string>
+</resources>

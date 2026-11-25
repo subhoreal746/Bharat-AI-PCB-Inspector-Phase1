@@ -1,0 +1,346 @@
+{
+  "yolo_model": "unified_pcb_640.onnx",
+  "yolo_conf_thresh": 0.33,
+  "yolo_iou_thresh": 0.45,
+  "patchcore_model": "patchcore_transistor_single.onnx",
+  "patchcore_raw_thresh": 39.5,
+  "patchcore_outputs": [
+    "pred_score",
+    "pred_label",
+    "anomaly_map",
+    "pred_mask"
+  ],
+  "localization_policy": "Use anomaly_map (outputs[2][0, 0]) ONLY when outputs[0][0] >= 39.5. Ignore pred_label (outputs[1]) and pred_mask (outputs[3], if present) because Anomalib bakes an uncalibrated default threshold into them.",
+  "samples": [
+    {
+      "file": "pcb_PASS_populated_visa_pcb1_norm_0056.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "PASS",
+      "detections": []
+    },
+    {
+      "file": "pcb_PASS_populated_visa_pcb1_norm_0155.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "PASS",
+      "detections": []
+    },
+    {
+      "file": "pcb_copper_93pct_deeppcb_13000159.png",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 10,
+          "class_name": "copper",
+          "confidence": 0.9332,
+          "bbox_xyxy": [
+            500,
+            400,
+            543,
+            443
+          ],
+          "area_pct": 0.45
+        },
+        {
+          "class_id": 3,
+          "class_name": "spur",
+          "confidence": 0.747,
+          "bbox_xyxy": [
+            399,
+            70,
+            426,
+            103
+          ],
+          "area_pct": 0.22
+        },
+        {
+          "class_id": 10,
+          "class_name": "copper",
+          "confidence": 0.6514,
+          "bbox_xyxy": [
+            494,
+            95,
+            559,
+            157
+          ],
+          "area_pct": 0.98
+        },
+        {
+          "class_id": 2,
+          "class_name": "mouse_bite",
+          "confidence": 0.357,
+          "bbox_xyxy": [
+            105,
+            75,
+            134,
+            98
+          ],
+          "area_pct": 0.16
+        }
+      ]
+    },
+    {
+      "file": "pcb_copper_burr_90pct_pcb_ind_6463_b_017.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 6,
+          "class_name": "copper_burr",
+          "confidence": 0.8989,
+          "bbox_xyxy": [
+            135,
+            128,
+            180,
+            164
+          ],
+          "area_pct": 1.8
+        }
+      ]
+    },
+    {
+      "file": "pcb_hole_breakout_94pct_dspcbsd_S_12027856.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 8,
+          "class_name": "hole_breakout",
+          "confidence": 0.9421,
+          "bbox_xyxy": [
+            90,
+            93,
+            131,
+            134
+          ],
+          "area_pct": 3.29
+        }
+      ]
+    },
+    {
+      "file": "pcb_missing_copper_98pct_pcb_ind_5799_t_036.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "missing_copper",
+          "confidence": 0.9826,
+          "bbox_xyxy": [
+            103,
+            102,
+            194,
+            198
+          ],
+          "area_pct": 9.71
+        }
+      ]
+    },
+    {
+      "file": "pcb_mouse_bite_95pct_pcb_ind_5799_t_021.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "mouse_bite",
+          "confidence": 0.9471,
+          "bbox_xyxy": [
+            139,
+            136,
+            164,
+            157
+          ],
+          "area_pct": 0.58
+        }
+      ]
+    },
+    {
+      "file": "pcb_open_97pct_dspcbsd_S_11222597.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 0,
+          "class_name": "open",
+          "confidence": 0.9673,
+          "bbox_xyxy": [
+            82,
+            101,
+            136,
+            154
+          ],
+          "area_pct": 5.6
+        },
+        {
+          "class_id": 4,
+          "class_name": "spurious_copper",
+          "confidence": 0.5862,
+          "bbox_xyxy": [
+            99,
+            121,
+            118,
+            138
+          ],
+          "area_pct": 0.63
+        }
+      ]
+    },
+    {
+      "file": "pcb_scratch_97pct_pcb_ind_6581_b_064.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 9,
+          "class_name": "scratch",
+          "confidence": 0.9678,
+          "bbox_xyxy": [
+            0,
+            0,
+            300,
+            300
+          ],
+          "area_pct": 100.0
+        }
+      ]
+    },
+    {
+      "file": "pcb_short_92pct_dspcbsd_1368_data.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "short",
+          "confidence": 0.9164,
+          "bbox_xyxy": [
+            34,
+            12,
+            71,
+            38
+          ],
+          "area_pct": 8.25
+        }
+      ]
+    },
+    {
+      "file": "pcb_spur_91pct_dspcbsd_S_10098185.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 3,
+          "class_name": "spur",
+          "confidence": 0.9098,
+          "bbox_xyxy": [
+            83,
+            92,
+            136,
+            138
+          ],
+          "area_pct": 4.77
+        }
+      ]
+    },
+    {
+      "file": "pcb_spurious_copper_99pct_pcb_ind_6439_b_012.jpg",
+      "pipeline": "supervised_yolo",
+      "expected_status": "FAIL",
+      "detections": [
+        {
+          "class_id": 4,
+          "class_name": "spurious_copper",
+          "confidence": 0.9859,
+          "bbox_xyxy": [
+            18,
+            58,
+            174,
+            151
+          ],
+          "area_pct": 16.12
+        }
+      ]
+    },
+    {
+      "file": "trn_bent_lead_000.png",
+      "category": "bent_lead",
+      "pipeline": "unsupervised_patchcore",
+      "raw_pred_score": 54.634,
+      "threshold": 39.5,
+      "expected_status": "FAIL",
+      "expected_anomalous": true,
+      "normalized_confidence": 0.9999,
+      "expected_bbox_xyxy": [
+        228,
+        788,
+        324,
+        972
+      ],
+      "area_pct": 1.68
+    },
+    {
+      "file": "trn_cut_lead_000.png",
+      "category": "cut_lead",
+      "pipeline": "unsupervised_patchcore",
+      "raw_pred_score": 49.1274,
+      "threshold": 39.5,
+      "expected_status": "FAIL",
+      "expected_anomalous": true,
+      "normalized_confidence": 0.9969,
+      "expected_bbox_xyxy": [
+        304,
+        748,
+        412,
+        860
+      ],
+      "area_pct": 1.15
+    },
+    {
+      "file": "trn_damaged_case_000.png",
+      "category": "damaged_case",
+      "pipeline": "unsupervised_patchcore",
+      "raw_pred_score": 47.8303,
+      "threshold": 39.5,
+      "expected_status": "FAIL",
+      "expected_anomalous": true,
+      "normalized_confidence": 0.9933,
+      "expected_bbox_xyxy": [
+        492,
+        180,
+        680,
+        332
+      ],
+      "area_pct": 2.73
+    },
+    {
+      "file": "trn_good_000.png",
+      "category": "good",
+      "pipeline": "unsupervised_patchcore",
+      "raw_pred_score": 36.4764,
+      "threshold": 39.5,
+      "expected_status": "PASS",
+      "expected_anomalous": false,
+      "normalized_confidence": 0.1401,
+      "expected_bbox_xyxy": null,
+      "area_pct": 0.0
+    },
+    {
+      "file": "trn_misplaced_000.png",
+      "category": "misplaced",
+      "pipeline": "unsupervised_patchcore",
+      "raw_pred_score": 43.2355,
+      "threshold": 39.5,
+      "expected_status": "FAIL",
+      "expected_anomalous": true,
+      "normalized_confidence": 0.9039,
+      "expected_bbox_xyxy": [
+        208,
+        580,
+        748,
+        920
+      ],
+      "area_pct": 17.51
+    }
+  ]
+}

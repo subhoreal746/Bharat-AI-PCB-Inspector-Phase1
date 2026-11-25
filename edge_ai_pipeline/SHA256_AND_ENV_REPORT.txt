@@ -1,0 +1,33 @@
+=== MODEL ARTIFACT SHA-256 HASHES & TENSOR SIGNATURES ===
+- unified_pcb_640.onnx (11.70 MB)
+  SHA-256: d50009673750d247912c24575aed4b4bab95c926b0d398cd4b538a6907560592
+  Inputs : [('images', [1, 3, 640, 640], 'tensor(float)')]
+  Outputs: [('output0', [1, 15, 8400], 'tensor(float)')]
+- unified_pcb_416_int8.onnx (3.11 MB)
+  SHA-256: ff18b7c4f3bfdb26576766f732231190854932dfb860cd27acf8862d03fe6ced
+  Inputs : [('images', [1, 3, 416, 416], 'tensor(float)')]
+  Outputs: [('output0', [1, 15, 3549], 'tensor(float)')]
+- patchcore_transistor.onnx (0.33 MB)
+  SHA-256: 96fd97d5c4d1b7ab880169eee0e4da500726a4d310b68f234f55592b0b15ee51
+  Inputs : [('input', [2, 3, 256, 256], 'tensor(float)')]
+  Outputs: [('pred_score', [2], 'tensor(float)'), ('pred_label', [2], 'tensor(bool)'), ('anomaly_map', [2, 1, 256, 256], 'tensor(float)'), ('pred_mask', [2, 1, 256, 256], 'tensor(bool)')]
+- model.onnx.data (222.57 MB)
+  SHA-256: fd95fa803363edafbd8b6f2ff191e4942237fd3d65102482d6ecee5f06507214
+- patchcore_transistor_single.onnx (222.89 MB)
+  SHA-256: 544af0939a22ce9cf2f64460f1e3e8323ec4be2c91d0d914f8c4e788c4f44e95
+  Inputs : [('input', [2, 3, 256, 256], 'tensor(float)')]
+  Outputs: [('pred_score', [2], 'tensor(float)'), ('pred_label', [2], 'tensor(bool)'), ('anomaly_map', [2, 1, 256, 256], 'tensor(float)'), ('pred_mask', [2, 1, 256, 256], 'tensor(bool)')]
+- model.pte (240.02 MB)
+  SHA-256: b98200bc40e0305fbc2f574adee6e9a477ba6eb492ab5128ce044b098699c084
+- tokenizer.json (2.01 MB)
+  SHA-256: 9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c
+- tokenizer_config.json (0.00 MB)
+  SHA-256: 4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df
+- special_tokens_map.json (0.00 MB)
+  SHA-256: 2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52
+- config.json (0.00 MB)
+  SHA-256: 224f72354f10d617a359cc82ad15a3c96e866b9b2ffadb81997eeea9e88e22ee
+
+=== EXPORT & RUNTIME DEPENDENCY VERSIONS ===
+- llm_env: torch==2.15.0, onnxruntime==1.32.0, executorch==1.6.0, optimum==2.0.0, optimum-executorch==1.1.0, transformers==5.0.0rc1
+- vision_env: onnx==1.23.2, onnxruntime==1.32.0
