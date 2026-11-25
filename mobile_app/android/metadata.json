@@ -1,0 +1,6 @@
+{
+  "name": "Bharat PCB",
+  "description": "Offline-first on-device PCB optical inspection with deterministic screening policy and local audit logging.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
